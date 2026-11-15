@@ -3,19 +3,19 @@
 //  TapFrenzy
 //
 //  Created by Shamal Rathnayake on 2026-11-15.
-//
+// 
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack (alignment: .leading, spacing: 24 ){
+            Text("Tap Frenzy")
+                .font(.system(size: 36, weight: .bold))
+            
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .padding()
     }
 }
 
