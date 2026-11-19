@@ -14,7 +14,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .center, spacing: 24) {
                 Text("Tap Frenzy")
                     .font(.system(size: 36, weight: .bold))
                 Text("score").padding(EdgeInsets(top: 25, leading: 0, bottom: 0, trailing: 0))
