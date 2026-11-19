@@ -40,7 +40,7 @@ struct ContentView: View {
                 }
                 .frame(height: 10)
                 .padding(.horizontal, 30)
-                .animation(.linear(duration: 0.1), value: 5)
+                .animation(.linear(duration: 0.1), value: progress)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
