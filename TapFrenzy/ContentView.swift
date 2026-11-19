@@ -46,6 +46,22 @@ struct ContentView: View {
                 .frame(height: 10)
                 .padding(.horizontal, 30)
                 .animation(.linear(duration: 0.1), value: progress)
+
+                Spacer()
+
+                Button {
+                    score += 1
+                } label: {
+                    Text("TAP").padding(75).background(.green).clipShape(
+                        Circle()
+                    )
+                    .font(.system(size: 36, weight: .bold)).foregroundStyle(
+                        .black
+                    )
+                }
+
+                Spacer()
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
