@@ -17,9 +17,10 @@ struct ContentView: View {
             VStack(alignment: .center, spacing: 24) {
                 Text("Tap Frenzy")
                     .font(.system(size: 36, weight: .bold))
-                Text("score").padding(EdgeInsets(top: 25, leading: 0, bottom: 0, trailing: 0))
-                Text("\(score)").padding(EdgeInsets(top: 25, leading: 0, bottom: 0, trailing: 0))
+                Text("score").foregroundStyle(.gray)
+                Text("\(score)")
                     .font(.system(size: 68, weight: .bold))
+                    .foregroundStyle(.green)
 
                 GeometryReader { geo in
                     ZStack(alignment: .leading) {
