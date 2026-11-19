@@ -5,6 +5,7 @@
 //  Created by Shamal Rathnayake on 2026-11-15.
 //
 
+public import Combine
 import SwiftUI
 
 struct ContentView: View {
@@ -18,6 +19,8 @@ struct ContentView: View {
         let timeLeft = maxTime - spentTime
         return min(max(timeLeft / maxTime, 0), 1)
     }
+
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         ZStack {
@@ -48,6 +51,10 @@ struct ContentView: View {
             .padding()
             .background(.black)
             .foregroundColor(.white)
+        }
+        .onReceive(timer) { _ in
+            guard spentTime < maxTime else { return }
+            spentTime += 0.1
         }
     }
 }
