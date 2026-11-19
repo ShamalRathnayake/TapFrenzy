@@ -35,7 +35,9 @@ struct ContentView: View {
                 GeometryReader { geo in
                     ZStack(alignment: .leading) {
                         Capsule().fill(Color.white.opacity(0.9))
-                        Capsule().fill(Color.green.opacity(1)).frame(width: geo.size.width * progress)
+                        Capsule().fill(Color.green.opacity(1)).frame(
+                            width: max(0, ceil(geo.size.width * progress))
+                        )
                     }
                 }
                 .frame(height: 10)
