@@ -10,7 +10,14 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var score = 0
-    var progress: Double { 1 }
+    @State private var maxTime: Double = 10.0
+    @State private var spentTime: Double = 0.0
+    private var progress: Double {
+        guard maxTime > 0 else { return 0 }
+
+        let timeLeft = maxTime - spentTime
+        return min(max(timeLeft / maxTime, 0), 1)
+    }
 
     var body: some View {
         ZStack {
