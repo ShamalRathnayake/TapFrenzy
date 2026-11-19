@@ -17,6 +17,9 @@ struct ContentView: View {
             VStack(alignment: .center, spacing: 24) {
                 Text("Tap Frenzy")
                     .font(.system(size: 36, weight: .bold))
+
+                Spacer()
+
                 Text("score").foregroundStyle(.gray)
                 Text("\(score)")
                     .font(.system(size: 68, weight: .bold))
