@@ -122,6 +122,14 @@ struct ContentView: View {
                     .font(.largeTitle.bold())
                     .foregroundColor(.white)
 
+                Text("YOUR SCORE")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+
+                Text("\(score)")
+                    .font(.system(size: 72, weight: .black))
+                    .foregroundColor(.green)
+
                 Spacer()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
