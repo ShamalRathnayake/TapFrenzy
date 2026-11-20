@@ -141,6 +141,12 @@ struct ContentView: View {
                     .font(.system(size: 72, weight: .black))
                     .foregroundColor(.green)
 
+                HStack {
+                    Text("Best:").foregroundColor(.gray)
+                    Text("\(bestScore)").foregroundColor(.yellow)
+                }
+                .font(.system(.title3, design: .monospaced))
+
                 Button {
                     reset()
                 } label: {
