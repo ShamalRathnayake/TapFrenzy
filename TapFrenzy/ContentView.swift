@@ -97,6 +97,10 @@ struct ContentView: View {
             .padding()
             .background(.black)
             .foregroundColor(.white)
+
+            if isGameOver {
+                gameOverView
+            }
         }
         .onReceive(timer) { _ in
             guard isPlaying else { return }
@@ -105,6 +109,25 @@ struct ContentView: View {
                 gameOver()
             }
         }
+    }
+
+    var gameOverView: some View {
+        ZStack(alignment: .center) {
+
+            VStack(spacing: 20, ) {
+
+                Spacer()
+
+                Text("Time's up")
+                    .font(.largeTitle.bold())
+                    .foregroundColor(.white)
+
+                Spacer()
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .padding()
+            .background(.black)
+            .foregroundColor(.white)
     }
 }
 
