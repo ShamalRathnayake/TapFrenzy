@@ -21,6 +21,13 @@ struct ContentView: View {
         return min(max(timeLeft / maxTime, 0), 1)
     }
 
+    private var barColor: Color {
+        if !isPlaying { return Color.green }
+        if progress > 0.6 { return Color.green }
+        if progress > 0.3 { return Color.yellow }
+        return Color.red
+    }
+
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     func tap() {
@@ -45,7 +52,7 @@ struct ContentView: View {
                 GeometryReader { geo in
                     ZStack(alignment: .leading) {
                         Capsule().fill(Color.white.opacity(0.9))
-                        Capsule().fill(Color.green.opacity(1)).frame(
+                        Capsule().fill(barColor.opacity(1)).frame(
                             width: max(0, ceil(geo.size.width * progress))
                         )
                     }
