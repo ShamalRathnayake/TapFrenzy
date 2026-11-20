@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var maxTime: Double = 10.0
     @State private var spentTime: Double = 0.0
     @State private var isPlaying: Bool = false
+    @State private var isGameOver: Bool = false
     private var progress: Double {
         guard maxTime > 0 else { return 0 }
 
@@ -34,6 +35,12 @@ struct ContentView: View {
         if !isPlaying { isPlaying = true }
 
         score += 1
+    }
+
+    func gameOver() {
+        guard isPlaying else { return }
+        isPlaying = false
+        isGameOver = true
     }
 
     var body: some View {
@@ -94,7 +101,7 @@ struct ContentView: View {
             guard isPlaying else { return }
             spentTime += 0.1
             if spentTime >= maxTime {
-                isPlaying = false
+                gameOver()
             }
         }
     }
