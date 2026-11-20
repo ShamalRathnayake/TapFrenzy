@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var score = 0
+    @AppStorage("bestScore") private var bestScore = 0
     @State private var maxTime: Double = 10.0
     @State private var spentTime: Double = 0.0
     @State private var isPlaying: Bool = false
@@ -42,6 +43,9 @@ struct ContentView: View {
         guard isPlaying else { return }
         isPlaying = false
         isGameOver = true
+        if score > bestScore {
+            bestScore = Int(score)
+        }
     }
 
     func reset() {
