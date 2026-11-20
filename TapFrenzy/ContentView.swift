@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var score = 0
     @State private var maxTime: Double = 10.0
     @State private var spentTime: Double = 0.0
+    @State private var isPlaying: Bool = false
     private var progress: Double {
         guard maxTime > 0 else { return 0 }
 
@@ -23,6 +24,8 @@ struct ContentView: View {
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     func tap() {
+        if !isPlaying { isPlaying = true }
+
         score += 1
     }
 
@@ -73,8 +76,11 @@ struct ContentView: View {
             .foregroundColor(.white)
         }
         .onReceive(timer) { _ in
-            guard spentTime < maxTime else { return }
+            guard isPlaying else { return }
             spentTime += 0.1
+            if spentTime >= maxTime {
+                isPlaying = false
+            }
         }
     }
 }
