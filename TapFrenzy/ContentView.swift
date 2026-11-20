@@ -44,6 +44,13 @@ struct ContentView: View {
         isGameOver = true
     }
 
+    func reset() {
+        isGameOver = false
+        isPlaying = false
+        score = 0
+        spentTime = 0
+    }
+
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 24) {
