@@ -32,6 +32,7 @@ struct ContentView: View {
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     func tap() {
+        guard !isGameOver else { return }
         if !isPlaying { isPlaying = true }
 
         score += 1
