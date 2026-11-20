@@ -22,6 +22,10 @@ struct ContentView: View {
 
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
+    func tap() {
+        score += 1
+    }
+
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 24) {
@@ -50,7 +54,7 @@ struct ContentView: View {
                 Spacer()
 
                 Button {
-                    score += 1
+                    tap()
                 } label: {
                     Text("TAP").padding(75).background(.green).clipShape(
                         Circle()
