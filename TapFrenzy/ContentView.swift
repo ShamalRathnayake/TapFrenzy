@@ -137,6 +137,17 @@ struct ContentView: View {
                     .font(.system(size: 72, weight: .black))
                     .foregroundColor(.green)
 
+                Button {
+                    reset()
+                } label: {
+                    Text("Play Again")
+                        .font(.title3.bold())
+                        .foregroundColor(.black)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 16)
+                        .background(Capsule().fill(.green))
+                }
+
                 Spacer()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
