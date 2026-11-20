@@ -54,6 +54,14 @@ struct ContentView: View {
                 .padding(.horizontal, 30)
                 .animation(.linear(duration: 0.1), value: progress)
 
+                Text(
+                    isPlaying
+                        ? "\(Int(ceil(maxTime - spentTime)))s left"
+                        : "tap to start"
+                ).font(.system(.body, design: .monospaced)).foregroundColor(
+                    .gray
+                )
+
                 Spacer()
 
                 Button {
